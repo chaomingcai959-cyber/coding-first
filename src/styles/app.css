@@ -1,0 +1,72 @@
+/* 一期新增组件样式（原型 styles.css 之外的增量，遵循同一设计 token） */
+
+/* AI 面板顶部工具区（U3/U4 新增按钮） */
+.ai-tools {
+  display: flex; gap: 8px; padding: 10px 14px;
+  border-bottom: 1px solid var(--primary-border);
+  background: var(--primary-tint-3);
+}
+.ai-tools__btn {
+  flex: 1; height: 32px; border-radius: 8px; font-size: 13px; cursor: pointer;
+  border: 1px solid var(--primary-border); background: #fff; color: var(--primary);
+  transition: all .15s;
+}
+.ai-tools__btn:hover { border-color: var(--primary-mid); background: var(--primary-tint); }
+.ai-tools__btn:disabled { opacity: .4; cursor: not-allowed; }
+
+/* 对话分割线（开启新规则） */
+.ai-divider {
+  display: flex; align-items: center; gap: 10px; margin: 14px 4px;
+  color: var(--primary-text-light); font-size: 12px;
+}
+.ai-divider::before, .ai-divider::after {
+  content: ""; flex: 1; height: 1px; background: var(--primary-border);
+}
+
+/* 系统事件（手动操作联动写入会话流，M6） */
+.ai-event {
+  margin: 6px 4px; font-size: 12px; color: var(--primary-text-light); text-align: center;
+}
+
+/* 候选节目卡片操作区 */
+.ai-cand-ops { display: flex; gap: 8px; margin: 8px 4px 0; flex-wrap: wrap; }
+.ai-cand-ops .btn-p, .ai-cand-ops .btn-o { height: 30px; font-size: 12px; padding: 0 12px; }
+
+/* 播单表格行拖拽 */
+.pl-table tbody tr[draggable="true"] { cursor: grab; }
+.pl-table tbody tr.drag-over td { background: var(--primary-tint); box-shadow: inset 0 2px 0 var(--primary); }
+.pl-version { font-size: 12px; color: var(--primary-text-light); margin-left: 10px; }
+
+/* 确认弹窗（统一确认组件，B6） */
+.modal--confirm { width: 420px; }
+.modal__text { font-size: 14px; color: #5f6473; line-height: 1.7; margin: 6px 0 4px; }
+.btn-danger {
+  height: 36px; padding: 0 18px; border-radius: 8px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, #dc2626, #ef4444); color: #fff; font-size: 14px;
+}
+
+/* 规则抽屉与弹窗显隐沿用原型 .show 机制（styles.css 已定义） */
+
+/* C7 频道信息条 */
+.pl-chinfo {
+  display: flex; gap: 18px; padding: 8px 4px 12px; flex-wrap: wrap;
+  font-size: 12px; color: var(--primary-text-light);
+  border-bottom: 1px solid var(--primary-border); margin-bottom: 8px;
+}
+
+/* C8 移至第 N 位输入 */
+.pl-move-to {
+  width: 44px; height: 22px; margin-left: 8px; padding: 0 6px;
+  border: 1px solid var(--primary-border); border-radius: 6px; font-size: 12px;
+  color: var(--primary); outline: none;
+}
+.pl-move-to:focus { border-color: var(--primary-mid); }
+.pl-move-to::placeholder { color: var(--primary-text-light); }
+
+/* B13 全局横幅（播单已更新/锁释放/错误提示） */
+.wb-banner {
+  margin: 0 22px; padding: 8px 14px; border-radius: 8px; cursor: pointer;
+  background: var(--primary-tint); border: 1px solid var(--primary-mid);
+  color: var(--primary-dark); font-size: 13px;
+  display: flex; justify-content: space-between; align-items: center;
+}
