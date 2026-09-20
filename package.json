@@ -3,10 +3,22 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "description": "AI 播单编排工作台：对话式编排播出单的前后端全栈项目（React18 + NestJS + PostgreSQL + DeepSeek）",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node scripts/start.mjs",
+    "start:web": "vite",
+    "start:server": "cd server && npm run start",
+    "setup": "npm install && cd server && npm install && npm run build",
+    "db:up": "docker compose -f server/docker-compose.yml up -d",
+    "db:down": "docker compose -f server/docker-compose.yml down",
+    "test": "cd server && npm test",
+    "smoke": "bash server/test/smoke.sh"
   },
   "dependencies": {
     "react": "^18.3.1",
